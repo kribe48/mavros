@@ -160,11 +160,12 @@ public:
   template<class T, std::enable_if_t<std::is_pointer<T>::value, bool> = true>
   inline double geoid_to_ellipsoid_height(const T lla)
   {
-    if (egm96_5) {
-      return GeographicLib::Geoid::GEOIDTOELLIPSOID * (*egm96_5)(lla->latitude, lla->longitude);
-    } else {
-      return 0.0;
-    }
+    return 0.0;
+    //if (egm96_5) {
+    //  return GeographicLib::Geoid::GEOIDTOELLIPSOID * (*egm96_5)(lla->latitude, lla->longitude);
+    //} else {
+    //  return 0.0;
+    //}
   }
 
   template<class T, std::enable_if_t<std::is_class<T>::value, bool> = true>
@@ -180,11 +181,12 @@ public:
   template<class T, std::enable_if_t<std::is_pointer<T>::value, bool> = true>
   inline double ellipsoid_to_geoid_height(const T lla)
   {
-    if (egm96_5) {
-      return GeographicLib::Geoid::ELLIPSOIDTOGEOID * (*egm96_5)(lla->latitude, lla->longitude);
-    } else {
-      return 0.0;
-    }
+    return 0.0;
+    //if (egm96_5) {
+    //  return GeographicLib::Geoid::ELLIPSOIDTOGEOID * (*egm96_5)(lla->latitude, lla->longitude);
+    //} else {
+    //  return 0.0;
+    //}
   }
 
   template<class T, std::enable_if_t<std::is_class<T>::value, bool> = true>
